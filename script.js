@@ -94,11 +94,13 @@ function getPasswordOptions() {
   while (true) {
     var passwordLength = parseInt(
       prompt(
-        "Please enter a password length (value must be 10 to 64 characters"
+        "Please enter a password length (value must be 10 to 64 characters)"
       )
     );
     if (passwordLength < 10 || passwordLength > 64) {
-      alert("Password length must be 10 to 64 characters Please try again");
+      alert(
+        "Password length value must be 10 to 64 characters Please try again"
+      );
     } else {
       passwordOptions.push(passwordLength);
       break;
@@ -133,10 +135,15 @@ function getPasswordOptions() {
 }
 
 // Function for getting a random element from an array
-function getRandom(arr) {}
+function getRandom(arr) {
+  randIndex = Math.floor(Math.random() * (arr.length + 1));
+  return arr[randIndex];
+}
 
 // Function to generate password with user input
-function generatePassword() {}
+function generatePassword() {
+  return "Hello";
+}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -152,4 +159,8 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-console.log(getPasswordOptions());
+console.log(
+  getRandom(
+    upperCasedCharacters.concat(lowerCasedCharacters, specialCharacters)
+  )
+);
