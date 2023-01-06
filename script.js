@@ -107,23 +107,23 @@ function getPasswordOptions() {
     }
   }
   while (true) {
-    var lowerCase = prompt(
+    var lowerCase = confirm(
       "Would you like to include lower case characters (yes/no)?"
-    ).toLowerCase();
-    var upperCase = prompt(
+    );
+    var upperCase = confirm(
       "Would you like to include upper case characters (yes/no)?"
-    ).toLowerCase();
-    var numeric = prompt(
+    );
+    var numeric = confirm(
       "Would you like to include numeric characters (yes/no)?"
-    ).toLowerCase();
-    var specialChar = prompt(
+    );
+    var specialChar = confirm(
       "Would you like to include special characters characters (yes/no)?"
-    ).toLowerCase();
+    );
     if (
-      lowerCase == "yes" ||
-      upperCase == "yes" ||
-      numeric == "yes" ||
-      specialChar == "yes"
+      lowerCase == true ||
+      upperCase == true ||
+      numeric == true ||
+      specialChar == true
     ) {
       passwordOptions.push(lowerCase, upperCase, numeric, specialChar);
       break;
@@ -158,11 +158,12 @@ function generatePassword() {
   //could have used map instead of for loop
   var selectArray = [];
   for (i = 0; i < passwordOptions.length; i++) {
-    if (passwordTypes[i] === "yes") {
+    if (passwordTypes[i] === true) {
       selectArray = selectArray.concat(chars[i]);
     }
   }
   //for loop for number of char select random char using function and add to string
+  //can use map to simplify this.
   password = "";
   for (i = 0; i < passwordLen[0]; i++) {
     password = password + getRandom(selectArray);
