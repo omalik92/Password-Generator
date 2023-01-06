@@ -155,6 +155,7 @@ function generatePassword() {
     specialCharacters,
   ];
   //for loop for 4 options. if yes is selected within option array concat array to final options array
+  //could have used map instead of for loop
   var selectArray = [];
   for (i = 0; i < passwordOptions.length; i++) {
     if (passwordTypes[i] === "yes") {
@@ -176,6 +177,7 @@ var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
+  //setting html value of #password to password
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
